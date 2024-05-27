@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   }
 
   // cek data
-  let { id, nama_karyawan } = await req.body;
+  let { id, nama_karyawan, jam_datang, jam_pulang } = await req.body;
 
   if (!id) {
     return res.status(400).json({ error: "id harus ada" });
@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
   // ubah data
   const resData =
-    await sql`update absensi_karyawan set nama_karyawan=${nama_karyawan} where id=${id} `;
+    await sql`update absensi_karyawan set nama_karyawan=${nama_karyawan}, jam_datang=${jam_datang}, jam_pulang=${jam_pulang} where id=${id} `;
 
   // beritahu klo success
   return res.status(200).json({ message: "updated", data: resData });

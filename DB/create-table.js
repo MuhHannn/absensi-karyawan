@@ -9,8 +9,8 @@ async function execute() {
     CREATE TABLE IF NOT EXISTS absensi_karyawan (
         id SERIAL PRIMARY KEY,
         nama_karyawan VARCHAR(150) NOT NULL,
-        jam_datang VARCHAR(5),
-        jam_pulang VARCHAR(5),
+        jam_datang VARCHAR(5) NOT NULL,
+        jam_pulang VARCHAR(5) NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
     ) 
     `;

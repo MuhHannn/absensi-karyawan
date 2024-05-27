@@ -5,23 +5,17 @@ export default function Home() {
 
   const handleAdd = (event) => {
     event.preventDefault();
-    const keterangan = event.target.keterangan.value;
-    const income = event.target.income.value;
-    const outcome = event.target.outcome.value;
-    const tanggal = event.target.tanggal.value;
-    const bulan = event.target.bulan.value;
-    const tahun = event.target.tahun.value;
+    const nama_karyawan = event.target.nama_karyawan.value;
+    const jam_datang = event.target.jam_datang.value;
+    const jam_pulang = event.target.jam_pulang.value;
 
     fetch("/api/insert-data", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        keterangan: keterangan,
-        income: income,
-        outcome: outcome,
-        tanggal: tanggal,
-        bulan: bulan,
-        tahun: tahun,
+        nama_karyawan: nama_karyawan,
+        jam_datang: jam_datang,
+        jam_pulang: jam_pulang,
       }),
     })
       .then((res) => res.json())
@@ -40,49 +34,25 @@ export default function Home() {
       <div className="bg-white shadow-md rounded p-8 w-full max-w-lg">
         <form onSubmit={handleAdd} className="space-y-4">
           <div>
-            <label className="block text-gray-700">Keterangan:</label>
+            <label className="block text-gray-700">Nama Karyawan:</label>
             <input
-              name="keterangan"
+              name="nama_karyawan"
               required
               className="w-full px-4 py-2 border rounded"
             />
           </div>
           <div>
-            <label className="block text-gray-700">Income:</label>
+            <label className="block text-gray-700">Jam Datang:</label>
             <input
-              name="income"
+              name="jam_datang"
               required
               className="w-full px-4 py-2 border rounded"
             />
           </div>
           <div>
-            <label className="block text-gray-700">Outcome:</label>
+            <label className="block text-gray-700">Jam Pulang:</label>
             <input
-              name="outcome"
-              required
-              className="w-full px-4 py-2 border rounded"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Tanggal:</label>
-            <input
-              name="tanggal"
-              required
-              className="w-full px-4 py-2 border rounded"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Bulan:</label>
-            <input
-              name="bulan"
-              required
-              className="w-full px-4 py-2 border rounded"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Tahun:</label>
-            <input
-              name="tahun"
+              name="jam_pulang"
               required
               className="w-full px-4 py-2 border rounded"
             />
