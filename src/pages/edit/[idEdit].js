@@ -24,6 +24,7 @@ export default function Home() {
     const nama_karyawan = event.target.nama_karyawan.value;
     const jam_datang = event.target.jam_datang.value;
     const jam_pulang = event.target.jam_pulang.value;
+    const keterangan = event.target.keterangan.value;
 
     fetch(`/api/update-data`, {
       method: "PUT",
@@ -34,13 +35,14 @@ export default function Home() {
         nama_karyawan: nama_karyawan,
         jam_datang: jam_datang,
         jam_pulang: jam_pulang,
+        keterangan: keterangan,
         id: idEdit,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
         alert(data.message);
-        router.push(`/`);
+        router.push(`/admin`);
       })
       .catch((data) => {
         alert("error: ", data.message);
@@ -81,6 +83,15 @@ export default function Home() {
                 required
               />
             </div>
+            <div>
+              <label className="block text-gray-700">Keterangan:</label>
+              <input
+                name="keterangan"
+                defaultValue={dataDetail.keterangan}
+                className="w-full px-4 py-2 border rounded"
+                required
+              />
+            </div>
             <div className="flex space-x-4">
               <button
                 type="submit"
@@ -91,7 +102,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => {
-                  router.push(`/`);
+                  router.push(`/admin`);
                 }}
                 className="bg-gray-500 text-white px-4 py-2 rounded"
               >

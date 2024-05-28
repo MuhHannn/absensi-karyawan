@@ -8,10 +8,13 @@ async function execute() {
   const createTable = await sql`
     CREATE TABLE IF NOT EXISTS absensi_karyawan (
         id SERIAL PRIMARY KEY,
-        nama_karyawan VARCHAR(150) NOT NULL,
-        jam_datang VARCHAR(5) NOT NULL,
-        jam_pulang VARCHAR(5) NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+        nama_karyawan VARCHAR(20) NOT NULL,
+        jam_datang VARCHAR(5), 
+        jam_pulang VARCHAR(5),
+        keterangan VARCHAR,
+        hari INT,
+        bulan INT,
+        tahun INT
     ) 
     `;
   console.log(createTable);

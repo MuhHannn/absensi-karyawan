@@ -17,7 +17,7 @@ export default function Home() {
         if (!data.data) {
           setDetail(null);
           alert("Data tidak ditemukan");
-          router.push(`/`);
+          router.push(`/admin`);
         } else {
           setDetail(data.data);
         }
@@ -47,13 +47,17 @@ export default function Home() {
             {dataDetail.jam_pulang}
           </p>
           <p className="mb-2">
-            <span className="font-semibold">Created At:</span>{" "}
-            {dataDetail.created_at}
+            <span className="font-semibold">Keterangan:</span>{" "}
+            {dataDetail.keterangan}
+          </p>
+          <p className="mb-2">
+            <span className="font-semibold">Tanggal:</span> {dataDetail.tanggal}
+            /{dataDetail.bulan}/{dataDetail.tahun}
           </p>
           <button
             type="button"
             onClick={() => {
-              router.push(`/`);
+              router.push(`/admin`);
             }}
             className="bg-gray-500 text-white px-4 py-2 rounded"
           >

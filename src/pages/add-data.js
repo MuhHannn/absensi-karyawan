@@ -7,7 +7,7 @@ export default function Home() {
     event.preventDefault();
     const nama_karyawan = event.target.nama_karyawan.value;
     const jam_datang = event.target.jam_datang.value;
-    const jam_pulang = event.target.jam_pulang.value;
+    const keterangan = event.target.keterangan.value;
 
     fetch("/api/insert-data", {
       method: "POST",
@@ -15,7 +15,7 @@ export default function Home() {
       body: JSON.stringify({
         nama_karyawan: nama_karyawan,
         jam_datang: jam_datang,
-        jam_pulang: jam_pulang,
+        keterangan: keterangan,
       }),
     })
       .then((res) => res.json())
@@ -50,10 +50,9 @@ export default function Home() {
             />
           </div>
           <div>
-            <label className="block text-gray-700">Jam Pulang:</label>
+            <label className="block text-gray-700">Keterangan:</label>
             <input
-              name="jam_pulang"
-              required
+              name="keterangan"
               className="w-full px-4 py-2 border rounded"
             />
           </div>
