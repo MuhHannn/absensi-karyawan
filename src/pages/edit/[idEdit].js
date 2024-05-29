@@ -89,7 +89,6 @@ export default function Home() {
                 name="keterangan"
                 defaultValue={dataDetail.keterangan}
                 className="w-full px-4 py-2 border rounded"
-                required
               />
             </div>
             <div className="flex space-x-4">
