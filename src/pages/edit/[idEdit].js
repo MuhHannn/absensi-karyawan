@@ -80,7 +80,6 @@ export default function Home() {
                 name="jam_pulang"
                 defaultValue={dataDetail.jam_pulang}
                 className="w-full px-4 py-2 border rounded"
-                required
               />
             </div>
             <div>
